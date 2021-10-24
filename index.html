@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <style>
+
+        /* *{
+            font-family:'helve' !important;
+        } */
+
+        @font-face {
+            font-family:'helve'!important;
+            font-style: normal;
+            src: url('http://sharon0108.cdn3.cafe24.com/helve.ttf') format('truetype')!important;
+        }
+
+        html,
+        body {
+            font-family:'helve';
+            width: 100%;
+            height: 100%;
+            background-color:white;
+        }
+        .navbar {
+            font-family:'helve';
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+        footer {
+            background-color: white;
+            /* padding: 2px; */
+        }
+        .logoimg {
+            width:50;
+            height:20;
+        }
+        /* img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        } */
+        .cover  {
+            background-image: url('http://sharon0108.cdn3.cafe24.com/bird.gif');
+            background-size: cover;
+            height:100%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        #slider {
+		    position:relative;
+		    overflow: hidden;
+            
+	    }
+
+        #slider .slides {
+            margin:0;
+            padding: 0;
+            
+        }
+
+        #slider .slide {
+            float: left;
+            list-style-type: none;
+        }
+        
+        iframe{
+            position: absolute !important; 
+            top:40%;
+            left: 45%  !important;
+            width: 50%  !important;
+            height: 50%  !important;
+            /* background: none!important; */
+        }
+
+        
+        
+        #video-container {
+            position: relative;
+            height: 0;
+            
+        }
+
+        #video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 100px;
+            width: 50%;
+            height: 50%;
+        }
+
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+            font-family:'helve';
+        }
+    
+    
+        footer {
+                background-color: rgb(34, 32, 32);
+                height: 100%;
+                /* padding: 2px; */
+        }
+
+        .row {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            -ms-flex-wrap: wrap; /* IE10 */
+            flex-wrap: wrap;
+            padding: 0 35px;
+        }
+
+        /* Create four equal columns that sits next to each other */
+        .column {
+            -ms-flex: 25%; /* IE10 */
+            flex: 25%;
+            max-width: 15%;
+            padding: 0 20px;
+        }
+
+        .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+            width: 100%;
+        }
+        .work-container{
+            background-color: white;
+            margin-top:10%;
+            height:100%;
+
+        }
+  
+        #rig {
+            vertical-align: center;
+            height: 70%;
+            max-width:50%;
+            margin:0 auto; /*center aligned*/
+            padding:0;
+            font-size:0; /* Remember to change it back to normal font size if have captions */
+            list-style:none;
+            background-color:#000;
+        }
+        #rig li {
+            display: inline-block;
+            *display:inline;/*for IE6 - IE7*/
+            width:25%;
+            vertical-align:middle;
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+        }
+                
+        /* The wrapper for each item */
+        .rig-cell {
+            /*margin:12px;
+            box-shadow:0 0 6px rgba(0,0,0,0.3);*/
+            display:block;
+            position: relative;
+            overflow:hidden;
+        }
+                
+        /* If have the image layer */
+        .rig-img {
+            display:block;
+            width: 100%;
+            height: auto;
+            border:none;
+            transform:scale(1);
+            transition:all 1s;
+        }
+
+        #rig li:hover .rig-img {
+            transform:scale(1.05);
+        }
+                
+        /* If have the overlay layer */
+        .rig-overlay {
+            position: absolute;
+            display:block;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            background: #0A1931 url(img/link.png) no-repeat center 20%;
+            background-size:50px 50px;
+            opacity:0;
+            filter:alpha(opacity=0);/*For IE6 - IE8*/
+            transition:all 0.6s;
+        }
+        #rig li:hover .rig-overlay {
+            opacity:0.8;
+        }
+
+        /* If have captions */
+        .rig-text {
+            display:block;
+            padding:0 30px;
+            box-sizing:border-box;
+            position:absolute;
+            left:0;
+            width:100%;
+            text-align:center;
+            text-transform:capitalize;
+            font-size:18px;
+            font-weight:bold;
+            font-family: 'Oswald', sans-serif;
+            font-weight:normal!important;
+            top:40%;
+            color:white;
+            opacity:0;
+            filter:alpha(opacity=0);/*For older IE*/
+            transform:translateY(-20px);
+            transition:all .3s;
+        }
+        #rig li:hover .rig-text {
+            transform:translateY(0px);
+            opacity:0.9;
+        }
+
+      /* Responsive layout - makes a two column-layout instead of four columns */
+       @media screen and (max-width: 800px) {
+
+            .column {
+            -ms-flex: 50%;
+            flex: 50%;
+            max-width: 50%;
+            }
+            #rig li {
+                width:33.33%;
+            }
+        }
+
+      /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 600px) {
+            .column {
+            -ms-flex: 100%;
+            flex: 100%;
+            max-width: 100%;
+            }
+            #rig li {
+                width:50%;
+            }
+       }
+
+       .typewriter{
+    margin-top : 3rem;
+    margin-left: 10rem;
+   
+}
+    .typewriter p{
+        font-family: 'MyWebFont';
+        font-size: 3rem;
+    }
+
+  /* DEMO-SPECIFIC STYLES */
+  .typewriter h1 {
+    color: white;
+    font-family: 'MyMenuFont';
+    overflow: hidden;/*  Ensures the content is not revealed until the animation */
+    border-right: .15rem solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    /*margin: 0 auto; Gives that scrolling effect as the typing happens*/
+    letter-spacing: .15rem; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(30, end),
+      blink-caret .5s step-end infinite;
+  }
+  
+  .typewriter h2 {
+    color: white;
+    font-family: 'MyMenuFont';
+    overflow: hidden;/*  Ensures the content is not revealed until the animation */
+    border-right: .15rem solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    /*margin: 0 auto; Gives that scrolling effect as the typing happens*/
+    letter-spacing: .15rem; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(30, end),
+      blink-caret .5s step-end infinite;
+  }
+  
+
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 45% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color:black }
+  }
+  
+</style>
+ 
+</head>
+<body>
+    <div class="cover" style="font-family:'helve';">
+    <nav class="navbar navbar-inverse" style="background-color: transparent; border:0;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+
+            <a class="navbar-brand" href="#"><strong style="color:white">MASTEF</strong></a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav"  >
+              <li class="active"><a href="#" style="color:white; background-color:transparent;font-size:12px" >HOME</strong></a></li>
+              <li><a href="#"style="color:white;font-family:'helve';font-size:12px">ABOUT</strong></a></li>
+              <li><a href="#"style="color:white;font-size:12px">WORK</strong></a></li>
+              <li><a href="#"style="color:white;font-size:12px">CONTACT</strong></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"style="color:white;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="typewriter">
+        
+            <h1>"Minimalist Aesthetic Street Trends, Ergo Fashion"</h1>
+
+          </div>
+          
+      </nav>
+    </div>
+    <iframe src="https://www.youtube.com/embed/7fcT7mEIDz4" title="YouTube video player" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     
+       </div>
+
+    
+    </body>
+</html>
