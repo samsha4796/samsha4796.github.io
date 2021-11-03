@@ -95,11 +95,9 @@
 }
 
 
-#menulist #menuitem{
+#menulist{
     border:1px solid grey;
     list-style:none;
-    
-    
     border-radius:5px;
     padding:10px;
     margin-bottom:5px;
@@ -107,11 +105,6 @@
     text-align:center;
 }
 
-#menulist #menuitem:hover{
-    color:grey;
-    cursor:pointer;
-    text-decoration-line : none;
-}
 
 #video{
   width:100%;
